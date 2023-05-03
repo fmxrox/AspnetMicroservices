@@ -1,3 +1,4 @@
+using Basket.API.Repositories;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
 {
     options.Configuration = configuraion.GetValue<string>("CacheSettings:ConnectionString");
 });
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

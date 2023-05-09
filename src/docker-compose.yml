@@ -5,6 +5,9 @@ services:
   basketdb:
     image: redis:alpine
 
+  discountdb:
+    image: postgres
+
   rabbitmq:
     image: rabbitmq:3-management-alpine
 

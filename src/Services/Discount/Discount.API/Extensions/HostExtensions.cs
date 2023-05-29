@@ -4,7 +4,7 @@ namespace Discount.API.Extensions
 {
     public static class HostExtensions
     {
-        public static IHost MigrateDatabase<TContext>(this IHost host, int? retry = 0)
+        public static IHost MigrateDatabase<TContext>(this IHost? host, int? retry = 0)
         {
             int retryForAvailability = retry.Value;
 
@@ -36,10 +36,10 @@ namespace Discount.API.Extensions
                                                                 Amount INT)";
                     command.ExecuteNonQuery();
 
-                    command.CommandText = "INSERT INTO Coupon(ProductName, Description, Amount) VALUES('IPhone X', 'IPhone Discount', 150);";
+                    command.CommandText = "INSERT INTO Coupon(ProductName, Description, Amount) VALUES('IPhone X1', 'IPhone Discount', 150);";
                     command.ExecuteNonQuery();
 
-                    command.CommandText = "INSERT INTO Coupon(ProductName, Description, Amount) VALUES('Samsung 10', 'Samsung Discount', 100);";
+                    command.CommandText = "INSERT INTO Coupon(ProductName, Description, Amount) VALUES('Samsung 10000001', 'Samsung Discount', 100);";
                     command.ExecuteNonQuery();
 
                     logger.LogInformation("Migrated postresql database.");
